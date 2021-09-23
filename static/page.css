@@ -1,0 +1,257 @@
+body{
+	--color1:#006797;
+	--color2:#91dcff;
+	--color3:#FCF6F5FF;
+}
+
+header{
+	color: var(--color3);
+	position: absolute;
+	z-index: 1;
+	width: 100%;
+}
+
+
+section.preview{
+	/*height: 75vh;*/
+	background-color: var(--color1);
+	padding: 200px 0px;
+	padding-bottom: 250px;
+	position: relative;
+	color: var(--color2);
+}
+
+
+.myform input{
+	height: 3.5rem;
+	color: var(--color1);
+	background-color: var(--color3);
+}
+
+.myform input:focus{
+	color: var(--color1);
+}
+
+.myform button{
+	height: 3.5rem;
+	background-color: var(--color3);
+	color: var(--color1);
+}
+
+.myform button:hover{
+	color:var(--color1);
+}
+
+.preview_bottom{
+	display: grid;
+	overflow: hidden;
+	width: 100%;
+	grid-template-columns:repeat(20, 1fr);
+	grid-column-gap: calc(25px);
+	position: relative;
+	top: -20px;
+}
+
+.preview_bottom span.dot{
+	display: block;
+	width: 100%;
+	height: 50px;
+	background-color: white;
+	border-radius: 100px;
+}
+
+
+
+.gallery{
+	display: grid;
+	width: 90%;
+	margin: 50px auto;
+	grid-template-columns:200px repeat(4, [gap-start] 50px [gap-end] 200px);
+	grid-template-rows: repeat(11, 50px);
+	justify-content: center;
+}
+
+.gallery > div{
+	width: 100%;
+	height: auto;
+	box-shadow: 0px 0px 5px 2px #cde;
+	background-color: #a5f3cc;
+	grid-column-end: span 1;
+	grid-row-end: span 5;
+}
+
+.gallery > div:nth-child(2),
+.gallery > div:nth-child(4),{
+	grid-row-start: 1;
+}
+
+.gallery > div:nth-child(6),
+.gallery > div:nth-child(7){
+	grid-row-start: 7;
+}
+
+.gallery > div:nth-child(1),
+.gallery > div:nth-child(3),
+.gallery > div:nth-child(5){
+	grid-row-start: 4;
+}
+
+
+.gallery > div:nth-child(1){
+	grid-column-start:1;
+}
+
+.gallery > div:nth-child(2),
+.gallery > div:nth-child(7){
+	grid-column-start:3;
+}
+
+.gallery > div:nth-child(3){
+	grid-column-start:5;
+}
+.gallery > div:nth-child(4),
+.gallery > div:nth-child(6){
+	grid-column-start:7;
+}
+
+.gallery > div:nth-child(5){
+	grid-column-start:9;
+}
+
+
+.gallery.style1{
+	grid-template-columns: repeat(19,50px);
+	grid-template-rows: repeat(11, 50px);
+
+}
+
+.gallery.style1 > div{
+	grid-column-end: span 4;
+	grid-row-end:  span 5;
+}
+
+.gallery.style1 > div:nth-child(1){
+	grid-column-start:1;
+}
+
+.gallery.style1 > div:nth-child(2){
+	grid-column-start:6;
+}
+
+.gallery.style1 > div:nth-child(3){
+	grid-column-start:11;
+}
+.gallery.style1 > div:nth-child(4){
+	grid-column-start:16;
+}
+
+.gallery.style1 > div:nth-child(5){
+	grid-column-start:3;
+}
+
+.gallery.style1 > div:nth-child(6){
+	grid-column-start:8;
+	position: relative;
+	left: 25px;
+}
+
+.gallery.style1 > div:nth-child(7){
+	grid-column-start:14;
+}
+
+.gallery.style1 > div:nth-child(1),
+.gallery.style1 > div:nth-child(2),
+.gallery.style1> div:nth-child(3),
+.gallery.style1> div:nth-child(4){
+	grid-row-start: 1;
+}
+
+.gallery.style1 > div:nth-child(5),
+.gallery.style1 > div:nth-child(6),
+.gallery.style1> div:nth-child(7){
+	grid-row-start: 7;
+}
+
+.gallery.style2{
+	grid-template-columns: repeat(26,25px);
+	grid-template-rows: repeat(32, 25px);
+
+}
+
+.gallery.style2 > div{
+	grid-column-end: span 8;
+	grid-row-end:  span 10;
+}
+
+.gallery.style2 > div:nth-child(1),
+.gallery.style2 > div:nth-child(6){
+	grid-column-start:4;
+}
+
+.gallery.style2 > div:nth-child(3){
+	grid-column-start:1;
+}
+.gallery.style2 > div:nth-child(4){
+	grid-column-start:10;
+}
+
+.gallery.style2 > div:nth-child(5){
+	grid-column-start:19;
+}
+
+.gallery.style2 > div:nth-child(2),
+.gallery.style2 > div:nth-child(7){
+	grid-column-start:16;
+}
+
+.gallery.style2 > div:nth-child(1),
+.gallery.style2 > div:nth-child(2){
+	grid-row-start: 1;
+}
+
+.gallery.style2> div:nth-child(3),
+.gallery.style2> div:nth-child(4),
+.gallery.style2 > div:nth-child(5){
+	grid-row-start: 12;
+}
+
+.gallery.style2 > div:nth-child(6),
+.gallery.style2> div:nth-child(7){
+	grid-row-start: 23;
+}
+
+.gallery.extend{
+	grid-gap:10px;
+}
+
+.nav-link, .nav-link:hover {
+	color:var(--color2) !important;
+}
+
+.nav-link:active {
+	color:var(--color3) !important;
+}
+
+table th{
+	white-space: nowrap;
+}
+
+
+
+header nav .navbar-brand{
+	color: var(--color3) !important;
+}
+
+
+@media (max-width: 768px) {
+	section.preview{
+		padding:80px 5px;
+		padding-bottom: 100px;
+	}
+}
+
+@media (min-width: 768px){
+	table td:first-child {
+	white-space: nowrap;
+	}
+}

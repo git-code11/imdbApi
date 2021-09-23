@@ -1,0 +1,56 @@
+{% extends "page.html" %}
+
+{% macro generate_table(data) %}
+
+	{% for key,value in data.items() %}	
+		{% if value.__class__.__name__ == "dict" %}
+			{{ generate_table(value) }}
+		{% elif value.__class__.__name__ == "list" %}
+			
+			{% if value[0].__class__.__name__ == "dict" %}
+				{{ generate_table2(key,value) }}
+			{% else %}
+				{{ field_table(key, ', '.join(value)) }}
+			{% endif%}
+
+		{% else %}
+			{{ field_table(key, value) }}
+		{% endif %}
+	{% endfor%}		
+
+{% endmacro %}
+
+{% macro generate_table2(key,data) %}
+	<tr>
+		<td colspan="2" class="ps-4 fs-3">{{key}}</td>
+	</tr>
+	{{ field_table(*data[0].keys()) }}
+
+	{% for dts in data %}
+		{{ field_table(*dts.values()) }}
+	{% endfor %}
+
+{% endmacro %}
+
+{% macro field_table(field,value) %}
+	<tr>
+		<td>{{ field }}</td>
+		<td>
+			{{ value }}
+		</td>
+	</tr>
+{% endmacro %}
+
+{% block title %}
+	Search For - {{ search_key }}
+{% endblock %}
+
+{% block the_request_key %}
+	{{ search_key }}
+{% endblock %}
+
+{% block input_value %}{{- search_key -}}{% endblock %}
+
+{% block the_table %}
+	{{ generate_table(data) }}
+{% endblock %}

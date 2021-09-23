@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="static/bootstrap5.css">
+	<link rel="stylesheet" type="text/css" href="static/page.css">
+	<title>
+		{% block head %}Getting Your movie Info{% endblock %}
+	</title>
+</head>
+<body>
+	<header>
+		<nav class="px-2 fw-bold navbar">
+			<a class="navbar-brand fs-3" href="#">IMDB API</a>
+			<ul class="nav">
+				<li class="nav-item">
+					<a href="#" class="nav-link active fs-5">Home</a>
+				</li>
+				<!-- <li class="nav-item">
+					<a href="#" class="nav-link fs-5">About</a>
+				</li> -->
+			</ul>
+		</nav>
+	</header>
+	<main>
+		
+		<section class="preview">
+			<div class="container-lg">
+				<div class="text-center">
+					<h1 class="display-2 fw-bolder text-uppercase mb-md-1">Get Your Imbd Info</h1>
+					<h5 class="display-5 fst-italic">Our Api profiles you with the best</h5>
+				</div>
+
+				<form action="/props">
+					<div class="myform form-inline row justify-content-md-center mt-5">
+						<div class="col-9 col-md-8 mb-2 pe-0">
+							<input type="text" name="theid" class="form-control fs-2" placeholder="Enter ID e.g tt1234950" value="{% block input_value %}{% endblock %}">
+						</div>
+						<div class="col-2 pe-0 pe-md-1">
+							<button type="submit" class="btn btn-dafault fw-bold fs-2 lh-1">GET</button>
+						</div>	
+					</div>
+				</form>
+			</div>
+		</section>
+		<section class="preview_bottom">
+			<script type="text/javascript">
+				for(let i=0; i<20; i++){
+					document.write(`<span class="dot"></span>`)
+				}
+			</script>	
+		</section>
+
+		<section class="col-lg-8 offset-lg-2  px-2">
+			<section class="fs-4 font-monospace">
+				{% for cty, msg in get_flashed_messages(with_categories=True) %}
+					{% if cty == "fail" %}
+						<div class="alert-danger bg-opacity-50 p-2 rounded-2 mb-3">{{msg}}</div>
+					{% elif cty == "success" %}
+						<div class="alert-success bg-opacity-25 p-2 rounded-2">{{msg}}</div>
+					{% elif cty == "warning" %}
+						<div class="alert-warning bg-opacity-25 p-2 rounded-2">{{msg}}</div>
+					{% else %}
+						<div class="alert-info bg-opacity-25 p-2 rounded-2">{{msg}}</div>
+					{% endif %}
+				{% endfor %}
+			</section>
+			<table class="table table-bordered table-striped table-light fs-5">
+				<caption class="ps-4 caption-top">Result for {% block the_request_key%}--{% endblock %}</caption>
+				<thead>
+					<tr>
+						<th>Field Name</th>
+						<th>Values</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% block the_table%}
+						<tr>
+							<td>Lorem Ipsum</td>
+							<td>Ipsum troeez tegas Nagd</td>
+						</tr>
+						<script type="text/javascript">
+							for(let i=0; i<6; i++){
+								document.write(`<tr>
+							<td>Lorem Ipsum</td>
+							<td>Ipsum troeez tegas Nagd</td>
+						</tr>`);
+							}
+						</script>
+					{% endblock %}
+				</tbody>
+			</table>
+		</section>
+
+<!-- 		<section class="gallery style2 extend">
+			<div class=""></div>
+			<div class=""></div>
+			<div class=""></div>
+			<div class=""></div>
+			<div class=""></div>
+			<div class=""></div>
+			<div class=""></div>
+		</section> -->
+
+	</main>
+	<footer class="container-fluid bg-dark text-light px-5 pt-5 pb-3 fs-4 ">
+		<div class="row">
+			<div class="mb-2">Getting Your Api Refrence</div>
+			<div class="text-center">&copy From Mr. vector</div>
+		</div>
+	</footer>
+</body>
+</html>
