@@ -1,5 +1,5 @@
 from flask import Flask, flash, render_template, request, redirect, url_for, json
-from action.imdb import getImdbProfile, get_id
+from .action.imdb import getImdbProfile, get_id
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "134hhf99s"
 
@@ -38,6 +38,3 @@ def api(id=0):
 			return json.jsonify(data)
 	else:
 		return json.jsonify({"Error":True}), 404
-
-if __name__=='__main__':
-	app.run(debug=True)
