@@ -95,13 +95,13 @@ def make_request(url):
 		return False
 
 def getImdbProfile(id):
-	#data = make_request(id)
+	data = make_request(id)
 	#print("getting property of id")
-	data = open("=t3.html", encoding="utf-8")
+	#data = open("=t3.html", encoding="utf-8")
 	if(data):
 		return extract_data(data)
 	else:
-		print("An Error Occured")
+		#print("An Error Occured")
 		return False
 
 
