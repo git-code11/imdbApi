@@ -95,15 +95,15 @@ def make_request(url):
 		return False
 
 def getImdbProfile(id):
+	reply = {}
 	data = make_request(id)
 	#print("getting property of id")
-	#data = open("=t3.html", encoding="utf-8")
 	if(data):
-		return extract_data(data)
+		try:
+			reply["info"] = extract_data(data)
+			reply["code"] = 200
+		except:
+			reply["code"] = 404
 	else:
-		#print("An Error Occured")
-		return False
-
-
-#file = open('=t3.html', encoding="utf-8");
-#pprint.pprint(getImdbProfile(2))
+		reply["code"] = 500
+	return reply
