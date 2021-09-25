@@ -1,5 +1,5 @@
 from flask import Blueprint, redirect, url_for, json
-from .action.imdb import getImdbProfile, get_id
+from .action.api_ref import getImdbProfile, get_id
 
 api_bp = Blueprint('api_bp', __name__, url_prefix="/api")
 

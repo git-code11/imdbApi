@@ -81,10 +81,10 @@ def get_id(val):
 	m = id_get.match(val)
 	if(not m):
 		return False
-	return m[0]
+	return m[0].strip('/')
 	
 def make_request(url):
-	url = urlparse.urljoin(BASE_URL,url.strip('/'))
+	url = urlparse.urljoin(BASE_URL,url)#url.strip('/')
 	try:
 		r = requests.get(url,headers=headers)
 		if(r.status_code == 200):

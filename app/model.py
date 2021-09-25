@@ -1,11 +1,11 @@
-from .app import db
+from .main import db
 import json
 
 class Record(db.Model):
 	__table_name__ = "records"
 
-	id = db.Column(db.Integer, primary_key=True)
-	imdbid = db.Column(db.String(24), primary_key=True, index=True)
+	id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+	imdbid = db.Column(db.String(24), index=True)
 	link = db.Column(db.Text)
 	name = db.Column(db.Text)
 	rating = db.Column(db.Text)
@@ -19,15 +19,16 @@ class Record(db.Model):
 	cast = db.Column(db.Text)
 	extra = db.Column(db.Text)
 
-	def set_record(data):
+	def set_record(self,data):
 		if(data):
-			for k,v in data:
+			for k,v in data.items():
 				self.__setattr__(k,json.dumps(v) if v else None)
 
-	def get_record():
+	def get_record(self):
 		r_dbs = {}
 		for k in Record.__table__.c.keys():
-			val = self.__getattr__(k)
+			if(k in ['id','imdbid']):
+				continue
+			val = self.__getattribute__(k)
 			r_dbs[k] = json.loads(val) if val else None;
-		r_dbs["imdbid"].pop()
 		return r_dbs

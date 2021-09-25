@@ -57,11 +57,11 @@
 					{% if cty == "fail" %}
 						<div class="alert-danger bg-opacity-50 p-2 rounded-2 mb-3">{{msg}}</div>
 					{% elif cty == "success" %}
-						<div class="alert-success bg-opacity-25 p-2 rounded-2">{{msg}}</div>
+						<div class="alert-success bg-opacity-25 p-2 rounded-2 mb-3">{{msg}}</div>
 					{% elif cty == "warning" %}
-						<div class="alert-warning bg-opacity-25 p-2 rounded-2">{{msg}}</div>
+						<div class="alert-warning bg-opacity-25 p-2 rounded-2 mb-3">{{msg}}</div>
 					{% else %}
-						<div class="alert-info bg-opacity-25 p-2 rounded-2">{{msg}}</div>
+						<div class="alert-info bg-opacity-25 p-2 rounded-2 mb-3">{{msg}}</div>
 					{% endif %}
 				{% endfor %}
 			</section>
@@ -92,6 +92,16 @@
 			</table>
 		</section>
 
+		<section class="container-lg mb-5 p-4 bg-dark text-light bg-opacity-75 rounded-1 shadow">
+			<h3>How to Use the api:</h3>
+			<code class="fs-3">
+				<script type="text/javascript">document.write(window.location.host)</script>/api/&lt;imbdid&gt;
+			</code>
+			<div class="notice alert-dark p-1 mt-1 fs-3 rounded-1">
+			<p>The `&lt;imbdid&gt;` is the id of the movie e.g tt2949006</p>
+			<p>The Id must start with <b>`tt`</b></p>
+			</div>
+		</section>
 <!-- 		<section class="gallery style2 extend">
 			<div class=""></div>
 			<div class=""></div>
@@ -105,8 +115,8 @@
 	</main>
 	<footer class="container-fluid bg-dark text-light px-5 pt-5 pb-3 fs-4 ">
 		<div class="row">
-			<div class="mb-2">Getting Your Api Refrence</div>
-			<div class="text-center">&copy From Mr. vector</div>
+			<div class="mb-2">Fast Movie Properties Refrence with IMBD API</div>
+			<div class="text-center">&copy <script>document.write((new Date()).getFullYear())</script> From Mr. vector</div>
 		</div>
 	</footer>
 </body>

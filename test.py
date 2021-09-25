@@ -1,7 +1,7 @@
 import unittest
-from main import create_app, db
-from model import Record
-from action.imdb import extract_data, get_id
+from app.main import create_app, db
+from app.model import Record
+from app.action.imdb import extract_data, get_id
 
 class ModelTestSuite(unittest.TestCase):
 
@@ -24,6 +24,7 @@ class ModelTestSuite(unittest.TestCase):
 		db.session.add(r1)
 		db.session.commit()
 		m1 = Record.query.first()
-		self.assertEqual(data["link"], m1["link"])
+		ds = m1.get_record()
+		self.assertEqual(data["link"], ds["link"])
 
 
